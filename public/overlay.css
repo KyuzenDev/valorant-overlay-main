@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@font-face {
+    font-family: 'Tungsten';
+    src: url(./font/tungsten-bold.ttf);
+}
+@font-face {
+    font-family: 'DIN Light';
+    src: url(./font/din-light.otf);
+}
+@font-face {
+    font-family: 'DIN Regular';
+    src: url(./font/din-regular.otf);
+}
+@font-face {
+    font-family: 'DIN Medium';
+    src: url(./font/din-medium.otf);
+}
+
+:root {
+	--ui-font: 'Inter', 'Segoe UI Variable', 'Segoe UI', 'DIN Regular', sans-serif;
+	--ui-display: 'Inter', 'Segoe UI Variable Display', 'Segoe UI', 'DIN Medium', sans-serif;
+	--accent-color: #e65b6c;
+}
+
+.tung {
+	font-family: 'Tungsten';
+}
+.din0 {
+	font-family: var(--ui-font);
+}
+.din1 {
+	font-family: var(--ui-font);
+}
+.din2 {
+	font-family: var(--ui-display);
+}
+
+body {
+	margin: 0;
+	background: transparent;
+	overflow: hidden;
+}
+
+#overlay-frame {
+	position: relative;
+	width: 1920px;
+	height: 1080px;
+	transform-origin: top left;
+}
+#logoL {
+	left: 763px; top: 88px;
+}
+#logoR {
+	left: 1116px; top: 88px;
+}
+#ttbase, #tttext {
+	z-index: 40; text-align: center;
+	position: absolute;
+	display: flexbox;
+	width: 600px; 
+	height: 148px; 
+}
+.ttt {
+	clip-path: inset(0 0 100% 0);
+	transition: clip-path 0.5s ease-out;
+}
+.ttt[show] {
+	clip-path: inset(0 0 0 0);
+}
+
+#mptext {
+	left: 775px; top: 136px; z-index: 42; text-align: center;
+	position: absolute;
+	display: flexbox;
+	width: 371px; 
+	height: 112px; 
+}
+.mpt, .mpl {
+	clip-path: inset(0 0 100% 0);
+	transition: clip-path 0.3s ease-out;
+}
+.mpt[show], .mpl[show]{
+	clip-path: inset(0 0 0 0);
+}
+.base {
+	position: absolute;
+	display: flexbox;
+	text-align: center;
+}
+.tpt {
+	clip-path: inset(0 50% 0 50%);
+	transition: clip-path 0.5s ease-in-out;
+}
+.tpt[show] {
+	clip-path: inset(0 0 0 0);
+}
+
+svg {
+	position: absolute;
+}
+
+.diamond {
+	opacity: 0;
+	content: url(./img/d0.png);
+}
+.diamond[fill] {
+	opacity: 0;
+	content: url(./img/d1.png);
+}
+.bo1 img[id$="1"] {
+	opacity: 1;
+}
+
+.bo3 img[id$="1"] {
+	opacity: 1;
+}
+.bo3 img[id$="2"] {
+	opacity: 1;
+}
+
+.bo5 img[id$="0"] {
+	opacity: 1;
+}
+.bo5 img[id$="1"] {
+	opacity: 1;
+}
+.bo5 img[id$="2"] {
+	opacity: 1;
+}
+img[id^="mp"] {
+	position: absolute;
+}
+
+.ct {
+	fill: rgb(45, 143, 113);
+}
+.t {
+	fill: rgb(120, 48, 68);
+}
+.ctglow {
+	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgb(65,255,213) 100%);
+}
+.tglow {
+	background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgb(233,59,102) 100%);
+}
+
+.teamAbbr {
+	font-size: 35px;
+	font-family: 'Tungsten';
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+	text-align: center;
+	line-height: 40px;
+	position: absolute;
+}
+
+.logo {
+	position: absolute;
+	content: url(./img/noteam.png);
+	z-index: 45;
+	object-fit: contain;
+	filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.35));
+}
+#logoL, #logoR {
+	width: 41px;
+	height: 41px;
+}
+#ttlogo {
+	width: 99px;
+	height: 99px;
+	left: 24px;
+    top: 25px;
+}
+
+#nameplateL, #nameplateR {
+	filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.24));
+}
+
+#mpbg {
+	filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+}
+
+#mptext, #tttext, #tpbase {
+	text-shadow: 0 3px 0 rgba(0, 0, 0, 0.12), 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+#tpbase {
+	letter-spacing: 1px;
+}
+
+#timeout {
+	border-top: 3px solid var(--accent-color);
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}

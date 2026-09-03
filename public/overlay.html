@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Overlay</title>
+
+    <link rel="stylesheet" href="overlay.css">
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="overlay.js"></script>
+</head>
+
+<body>
+    <div id="overlay-frame">
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="55px" height="55px" id="logoplateL" 
+            style="left: 756px; top: 81px; z-index: 39;">
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="rgb(14, 24, 32)"
+                    d="M0.0,8 L8,0.0 L47,0.0 L55,8 L55,55 L8,55 L0.0,47 L0.0,8 Z" />
+            </svg>
+            <img class="logo" id="logoL" style="left: 763px; top: 88px;">
+            <svg class="ct" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                width="117px" height="40px" id="nameplateL" style="left: 811px; top: 96px; z-index: 39;">
+                <path fill-rule="evenodd" clip-rule="evenodd" 
+                    d="M0.0,0.0 L100,0.0 L117,18 L117,40 L0.0,40 L0.0,0.0 Z" />
+            </svg>
+            <div class="teamAbbr" id="abbrL" style="left: 811px; top: 96px; width: 100px; height: 40px; z-index: 41;">
+                FNC</div>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="40px" 
+            style="left: 911px; top: 96px; z-index: 40;">
+                <path fill-rule="evenodd" fill="rgb(255, 255, 255)"
+                    d="M18,39.999 L17.0,39.999 L17.0,18.0 L17.0,18.0 L0.0,1 L1,0.0 L18.0,17.0 L18.0,18.0 L18,39.999 Z" />
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="40px" 
+            style="left: 991px; top: 96px; z-index: 40;">
+                <path fill-rule="evenodd" fill="rgb(255, 255, 255)"
+                    d="M1,18.0 L1,39.999 L0.0,39.999 L0.0,18.0 L0.0,17.0 L17.0,0.0 L18.0,1 L1,18.0 Z" />
+            </svg>
+            <div class="teamAbbr" id="abbrR" style="left: 1009px; top: 96px; width: 100px; height: 40px; z-index: 41;">
+                LOUD</div>
+            <svg class="t" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                width="118px" height="40px" id="nameplateR" style="left: 992px; top:96px">
+                <path fill-rule="evenodd" 
+                    d="M117,0.0 L17,0.0 L0.10,16.989 L0.0,40 L117,40 L117,0.0 Z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="55px" height="55px" id="logoplateR" 
+            style="left: 1109px; top:81px;">
+                <path fill-rule="evenodd" fill="rgb(14, 24, 32)"
+                    d="M55,8 L47,0.0 L8,0.0 L0.0,8 L0.0,55 L47,55 L55,47 L55,8 Z" />
+            </svg>
+            <img class="logo" id="logoR" style="left: 1116px; top: 88px;">
+        </div>
+        <div>
+            <div id="map-points" class="bo3">
+                <img class="diamond" id="mpL2" style="left: 817px; top: 75px;">
+                <img class="diamond" id="mpL1" style="left: 835px; top: 75px;">
+                <img class="diamond" id="mpL0" style="left: 853px; top: 75px;">
+
+                <img class="diamond" id="mpR0" style="left: 1053px; top: 75px;">
+                <img class="diamond" id="mpR1" style="left: 1071px; top: 75px;">
+                <img class="diamond" id="mpR2" style="left: 1089px; top: 75px;">
+            </div>
+        </div>
+        <div id="header">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="371px" height="185px" id="mplineL"
+            class="mpl" style="left: 775px; top: 95px; z-index: 42;">
+                <path fill-rule="evenodd" fill="rgb(255, 255, 255)"
+                    d="M358,45 L355,42 L153,42 L153,41 L371,41 L371,45 L358,45 ZM135,1 L36,1 L36,0.0 L136,0.0 L138,2 L137,3 L135,1 ZM0.0,41 L1.0,41 L1.0,180.0 L13.0,180.0 L18.0,185.0 L0.0,185.0 L0.0,41 ZM371,180 L371,185 L355,185.0 L359,180.0 L371,180 Z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="371px" height="185px" id="mplineR"
+            class="mpl" style="left: 775px; top: 95px; z-index: 42;">
+                <path fill-rule="evenodd" fill="rgb(255, 255, 255)"
+                    d="M354,185.0 L359.0,180.0 L370.0,180.0 L370.0,41 L371.0,41 L371.0,185.0 L354,185.0 ZM233,3 L232,2 L234,0.0 L334,0.0 L334,1 L235,1 L233,3 ZM13,45 L0.0,45 L0.0,41 L217,41 L217,42 L15.999,42 L13,45 ZM17,185 L0.0,185 L0.0,180 L12,180 L17,185 Z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="371px" height="144px" id="mpbase"
+            class="mpt" style="left: 775px; top: 136px; z-index: 40;">
+                <path id="mpbg" fill-rule="evenodd" fill="rgb(120, 48, 68)"
+                    d="M0.0,0.0 L371,0.0 L371,144 L343,144 L343,112 L28,112 L28,144 L0.0,144 L0.0,0.0 Z" />
+            </svg>
+            <div style="left: 775px; top: 136px; z-index: 42; width: 371px; height: 112px; " id="mptext" class="mpt base">
+                <div class="din0" style="font-size: 28px; color: #ffffff; line-height: 45px;" id="mpname">TEAM</br></div>
+                <div class="tung" style="font-size: 80px; text-align: center; color: #ffffff; line-height: 45px;">MATCH POINT</div>
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="664px" height="146px" id="tpline"
+            class="tpt" style="left: 629px; top: 135px; z-index: 46;">
+                <path fill-rule="evenodd" fill="rgb(255, 255, 255)"
+                    d="M0.0,146.0 L0.0,141 L12.0,141 L15.0,145.0 L651,145.0 L653,141 L664,141 L664,146.0 L0.0,146.0 ZM649,1 L15.0,1 L12.0,5.0 L0.0,5.0 L0.0,0.0 L664,0.0 L664,5.0 L652,5.0 L649,1 Z" />
+            </svg>
+            <div class="tpt tung base" style="left: 629px; top: 135px; z-index: 44; width: 664px; height: 146px; background-color: #c12b44;
+                color: #ffffff; font-size: 130px; line-height: 140px;" id="tpbase">TECH PAUSE</div>
+        </div>
+        <div id="timeout" class="ttt" style="width: 600px; height: 148px; position: absolute; left: 661px; top: 383px; z-index: 40; text-align: center; background-color: #0e1820">
+            <div class="ttt" style="width: 600px; height: 6px; position: absolute; z-index: 45;">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600px" height="6px"
+                    id="ttline" style="left: 0;">
+                    <path fill-rule="evenodd" fill="rgb(255, 255, 255)"
+                        d="M0.0,6.0 L0.0,0.0 L600.0,0.0 L600.0,6.0 L589.0,6.0 L585.0,2 L15,2 L11,6.0 L0.0,6.0 Z" />
+                </svg>
+            </div>
+            <div class="ttt" id="ttanim" style="width: 600px; height: 148px; position: absolute;">
+                <svg width="600" height="148" style="position: relative;">
+                    <defs>
+                        <g id="r1">
+                        <rect x="0" y="0" width="40" height="30" fill="#FFFFFF50">
+                            <animate attributeName="y" from="-35" to="50" dur="4s" repeatCount="indefinite" calcMode="spline"
+                                keySplines="0.42 0 1 1" />
+                            <animate attributeName="width" from="40" to="7" dur="4s" repeatCount="indefinite" />
+                            <animate attributeName="height" from="30" to="10" dur="4s" repeatCount="indefinite" />
+                            <animate attributeName="fill" from="#FFFFFF50" to="#FFFFFF00" dur="4s" repeatCount="indefinite" />
+                        </rect>
+                        </g>
+                        <g id="r2">
+                        <rect x="0" y="0" width="60" height="30" fill="#FFFFFF50">
+                            <animate attributeName="y" from="-45" to="50" dur="7s" repeatCount="indefinite" calcMode="spline"
+                                keySplines="0.42 0 1 1" />
+                            <animate attributeName="width" from="60" to="15" dur="7s" repeatCount="indefinite" />
+                            <animate attributeName="fill" from="#FFFFFF50" to="#FFFFFF00" dur="7s" repeatCount="indefinite" />
+                        </rect>
+                        </g>
+                        <g id="rbig">
+                        <rect x="0" y="0" width="100" height="100" fill="#FFFFFF30">
+                            <animate attributeName="y" from="-105" to="70" dur="12s" repeatCount="indefinite" calcMode="spline"
+                                keySplines="0.42 0 1 1" />
+                            <animate attributeName="width" from="100" to="70" dur="12s" repeatCount="indefinite" />
+                            <animate attributeName="height" from="100" to="50" dur="12s" repeatCount="indefinite" />
+                            <animate attributeName="fill" from="#FFFFFF30" to="#FFFFFF00" dur="12s" repeatCount="indefinite" />
+                        </rect>
+                        </g>
+                        <g id="rbig2">
+                        <rect x="0" y="0" width="120" height="200" fill="#FFFFFF30">
+                            <animate attributeName="y" from="-120" to="140" dur="10s" repeatCount="indefinite" calcMode="spline"
+                                keySplines="0.42 0 1 1" />
+                            <animate attributeName="width" from="200" to="80" dur="10s" repeatCount="indefinite" />
+                            <animate attributeName="height" from="120" to="90" dur="10s" repeatCount="indefinite" />
+                            <animate attributeName="fill" from="#FFFFFF30" to="#FFFFFF00" dur="10s" repeatCount="indefinite" />
+                        </rect>
+                        </g>
+                    </defs>
+                    <use href="#r1" x="120"/><use href="#r1" x="240"/><use href="#r1" x="500"/><use href="#r2" x="340"/><use href="#r2" x="530"/><use href="#r2" x="40"/><use href="#rbig" x="60"/><use href="#rbig" x="440"/><use href="#rbig2" x="350"/><use href="#rbig2" x="-50"/><use href="#rbig2" x="580"/>
+                </svg>
+            </div>
+            <div style="z-index: 42; text-align: center;" id="tttext" class="ttt">
+                <div class="tung" style="font-size: 105px; text-align: center; color: #ffffff; line-height: 100px;">TIMEOUT</br></div>
+                <div class="din0" style="font-size: 32px; color: #ffffff;" id="ttname">TEAM</div>
+            </div>
+            <div class="ctglow ttt" style="opacity: 0.3; position: relative; width: 600px; height: 148px; z-index: 41;" id="ttglow"></div>
+            <img class="logo ttlogo ttt" id="ttlogo">
+            <div class="din0 ttt" style="line-height: 1; text-align: center; position: absolute; font-size: 25px; white-space: pre-line;
+            top: 52px; left: 520px; color: #bfbfbf; z-index: 42;">Used
+                <span id="ttused">0/0</span></div>
+        </div>
+</body>
+<script>
+    const ttanima = document.querySelectorAll('animate')
+</script>
+
+</html>
