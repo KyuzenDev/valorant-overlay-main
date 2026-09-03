@@ -123,6 +123,9 @@ io.on('connection', (socket) => {
                     }
                 }
                 break;
+            case 'roster-toggle':
+                overlayState.rosterVisible = overlayState.rosterVisible !== false ? false : true;
+                break;
             case 'reload-file':
                 loadStateFile();
                 break;

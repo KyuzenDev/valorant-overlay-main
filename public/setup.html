@@ -12,6 +12,18 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io();
+        const setupMode = new URLSearchParams(window.location.search).get('mode') || 'comp';
+        document.documentElement.classList.add('setup-mode-' + setupMode);
+
+        function applySetupMode() {
+            const isSkirmish = setupMode === 'skirmish';
+            for (const team of ['L', 'R']) {
+                for (let player = 3; player <= 5; player++) {
+                    document.getElementById(player + team).closest('.field-row').classList.toggle('skirmish-hidden', isSkirmish);
+                }
+            }
+            document.getElementById('setup-mode-label').innerText = isSkirmish ? 'SKIRMISH 2V2' : 'COMPETITIVE 5V5';
+        }
 
         function setConnectionStatus(isConnected) {
             const status = document.getElementById('sync-status');
@@ -67,6 +79,8 @@
         socket.on('admin-update', (state) => {
             updateAdminUI(state);
         });
+
+        window.addEventListener('DOMContentLoaded', applySetupMode);
     
         // Send commands from admin panel
         function sendCommand(action, value) {
@@ -124,9 +138,14 @@
         <div class="brand-block">
             <span class="eyebrow">RAVE // VCT CONTROL</span>
             <strong>Match Setup</strong>
+            <span class="setup-mode-label" id="setup-mode-label">COMPETITIVE 5V5</span>
         </div>
         <div class="sync-status" id="sync-status"><span class="live-dot"></span> <span id="sync-label">LIVE SYNC</span></div>
     </header>
+    <nav class="setup-nav" aria-label="Setup modes">
+        <a class="setup-nav-link" href="./setup.html?mode=comp">Competitive 5v5</a>
+        <a class="setup-nav-link" href="./setup.html?mode=skirmish">Skirmish 2v2</a>
+    </nav>
     <main class="setup-content">
         <section class="setup-section match-section">
             <h2>Match Configuration</h2>

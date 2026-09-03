@@ -577,6 +577,26 @@ kbd {
 	font-size: 13px;
 }
 
+.global-actions a {
+	display: inline-flex;
+	align-items: center;
+	padding: 9px 14px;
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	border-radius: 2px;
+	background: #18212b;
+	color: #dce2e6;
+	font-family: var(--ui-display);
+	font-size: 13px;
+	text-decoration: none;
+	transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.global-actions a:hover {
+	border-color: #51dfbb;
+	background: #1e3c40;
+	transform: translateY(-1px);
+}
+
 @media (max-width: 720px) {
 	.topbar { padding-inline: 14px; }
 	.sync-status { display: none; }

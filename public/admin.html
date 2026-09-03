@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="admin.css">
 
     <script src="/socket.io/socket.io.js"></script>
-    <script src="admin.js"></script>
+    <script src="admin.js?v=7"></script>
 </head>
 <body>
     <header class="topbar">
@@ -36,7 +36,7 @@
         <div class="format-badge">MANUAL OBSERVER</div>
     </div>
     <div class="shortcut-strip" aria-label="Keyboard shortcuts">
-        <span><kbd>1</kbd> Team A +</span><span><kbd>2</kbd> Team B +</span><span><kbd>Shift + 1/2</kbd> Undo score</span><span><kbd>S</kbd> Switch sides</span><span><kbd>Z</kbd> Match Point A</span><span><kbd>X</kbd> Match Point B</span><span><kbd>T</kbd> Technical pause</span><span><kbd>R</kbd> Reset timeouts</span><span><kbd>Esc</kbd> Clear header</span>
+        <span><kbd>1</kbd> Team A +</span><span><kbd>2</kbd> Team B +</span><span><kbd>Shift + 1/2</kbd> Undo score</span><span><kbd>S</kbd> Switch sides</span><span><kbd>Z</kbd> Match Point A</span><span><kbd>X</kbd> Match Point B</span><span><kbd>V</kbd> Toggle roster</span><span><kbd>T</kbd> Technical pause</span><span><kbd>R</kbd> Reset timeouts</span><span><kbd>Esc</kbd> Clear header</span>
     </div>
     <teams class="scoreboard-grid" style="color: #fff;">
         <teamL id="tl" class="ct">
@@ -61,6 +61,7 @@
         <div class="match-actions">
             <button onclick="switchsides()" title="Switch attacking sides">⇋ <span>Switch Sides</span></button>
             <button class="din1" onclick="sendCommand('timeout-end')">⨉ <span>Remove Timeout</span></button>
+            <button onclick="toggleRoster()" title="Show or hide overlay rosters">◈ <span>Toggle Roster</span></button>
         </div>
         <teamR id="tr" class="t">
             <img id="logoR" class="logo_l" />
@@ -88,6 +89,8 @@
             <button onclick="sendCommand('timeout-reset')">Reset Timeouts</button>
             <button onclick="header('tp', '0')">Technical Pause</button>
             <button onclick="sendCommand('header-end')">Clear Active Header</button>
+            <a href="./overlay-comp.html" target="_blank">Open Comp Overlay</a>
+            <a href="./overlay-skirmish.html" target="_blank">Open Skirmish Overlay</a>
         </div>
     </section>
     </main>

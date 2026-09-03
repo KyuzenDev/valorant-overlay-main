@@ -1,5 +1,8 @@
 const socket = io();
 
+const overlayMode = new URLSearchParams(window.location.search).get("mode") || "skirmish";
+document.documentElement.classList.add(`mode-${overlayMode}`);
+
 function setMapScore(team, format, score) {
     const normalizedScore = Math.max(0, Number(score) || 0);
     const points = [0, 1, 2].map((point) =>
@@ -45,6 +48,18 @@ function removeButTechPause() {
 }
 
 function updateOverlay(state) {
+    document.querySelectorAll(".roster .player-row").forEach((row) => {
+        row.classList.toggle(
+            "skirmish-player-hidden",
+            overlayMode === "skirmish" && Number(row.dataset.player) > 2
+        );
+    });
+
+    document.getElementById("overlay-frame").classList.toggle(
+        "roster-hidden",
+        state.rosterVisible === false
+    );
+
     document.documentElement.style.setProperty(
         "--accent-color",
         state.color || "#e65b6c"
@@ -80,6 +95,20 @@ function updateOverlay(state) {
     document.getElementById("abbrR").innerHTML = state.abbrR;
     document.getElementById("logoR").style = `content: url("${state.logoR}")`;
     setMapScore("R", state.format, state.scoreR);
+
+    document.getElementById("rosterTeamL").innerText = state.abbrL;
+    document.getElementById("rosterTeamR").innerText = state.abbrR;
+    ["L", "R"].forEach((team) => {
+        for (let i = 1; i <= 5; i++) {
+            document.getElementById(`player${i}${team}`).innerText = state[`p${i}${team}`] || `Player ${i}`;
+            const agentImage = document.getElementById(`agent${i}${team}`);
+            agentImage.onerror = () => {
+                agentImage.onerror = null;
+                agentImage.src = "./img/noteam.png";
+            };
+            agentImage.src = state[`logo${team}`] || "./img/noteam.png";
+        }
+    });
 
     if (state.timeout.isActive == 1) {
         document.getElementById("ttname").innerText =

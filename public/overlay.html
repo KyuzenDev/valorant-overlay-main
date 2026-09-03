@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="overlay.css">
 
     <script src="/socket.io/socket.io.js"></script>
-    <script src="overlay.js"></script>
+    <script src="overlay.js?v=8"></script>
 </head>
 
 <body>
@@ -65,6 +65,26 @@
                 <img class="diamond" id="mpR2" style="left: 1089px; top: 75px;">
             </div>
         </div>
+        <aside class="roster roster-left" aria-label="Left team roster">
+            <div class="roster-heading"><span>ROSTER</span><strong id="rosterTeamL">LEFT</strong></div>
+            <div class="roster-list">
+                <div class="player-row" data-player="1"><span class="player-number">01</span><img id="agent1L"><span id="player1L">Player 1</span></div>
+                <div class="player-row" data-player="2"><span class="player-number">02</span><img id="agent2L"><span id="player2L">Player 2</span></div>
+                <div class="player-row" data-player="3"><span class="player-number">03</span><img id="agent3L"><span id="player3L">Player 3</span></div>
+                <div class="player-row" data-player="4"><span class="player-number">04</span><img id="agent4L"><span id="player4L">Player 4</span></div>
+                <div class="player-row" data-player="5"><span class="player-number">05</span><img id="agent5L"><span id="player5L">Player 5</span></div>
+            </div>
+        </aside>
+        <aside class="roster roster-right" aria-label="Right team roster">
+            <div class="roster-heading"><strong id="rosterTeamR">RIGHT</strong><span>ROSTER</span></div>
+            <div class="roster-list">
+                <div class="player-row" data-player="1"><span id="player1R">Player 1</span><img id="agent1R"><span class="player-number">01</span></div>
+                <div class="player-row" data-player="2"><span id="player2R">Player 2</span><img id="agent2R"><span class="player-number">02</span></div>
+                <div class="player-row" data-player="3"><span id="player3R">Player 3</span><img id="agent3R"><span class="player-number">03</span></div>
+                <div class="player-row" data-player="4"><span id="player4R">Player 4</span><img id="agent4R"><span class="player-number">04</span></div>
+                <div class="player-row" data-player="5"><span id="player5R">Player 5</span><img id="agent5R"><span class="player-number">05</span></div>
+            </div>
+        </aside>
         <div id="header">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="371px" height="185px" id="mplineL"
             class="mpl" style="left: 775px; top: 95px; z-index: 42;">

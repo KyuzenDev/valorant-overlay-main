@@ -119,12 +119,17 @@ function switchsides() {
     }
 }
 
+function toggleRoster() {
+    sendCommand("roster-toggle");
+}
+
 document.addEventListener("keydown", (event) => {
     if (event.target.matches("input, textarea, select")) return;
+    if (event.repeat) return;
     const key = event.key.toLowerCase();
 
-    if (event.key === "1") sendCommand(event.shiftKey ? "score-rem" : "score-add", "L");
-    if (event.key === "2") sendCommand(event.shiftKey ? "score-rem" : "score-add", "R");
+    if (event.code === "Digit1") sendCommand(event.shiftKey ? "score-rem" : "score-add", "L");
+    if (event.code === "Digit2") sendCommand(event.shiftKey ? "score-rem" : "score-add", "R");
     if (key === "q") sendCommand("score-add", "L");
     if (key === "a") sendCommand("score-rem", "L");
     if (key === "p") sendCommand("score-add", "R");
@@ -132,6 +137,7 @@ document.addEventListener("keydown", (event) => {
     if (key === "s") switchsides();
     if (key === "z") header("mp", "L");
     if (key === "x") header("mp", "R");
+    if (key === "v" || event.code === "KeyV") toggleRoster();
     if (key === "t") {
         if (localstate.header && localstate.header.isActive == 1 && localstate.header.type === "tp") {
             sendCommand("header-end");

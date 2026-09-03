@@ -21,6 +21,46 @@ body {
 	padding: 0 24px;
 }
 
+.setup-mode-label {
+	margin-top: 6px;
+	color: #51dfbb;
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 1.8px;
+}
+
+.setup-nav {
+	display: flex;
+	justify-content: center;
+	gap: 4px;
+	max-width: 1180px;
+	margin: 24px auto 0;
+	padding: 0 24px;
+}
+
+.setup-nav-link {
+	flex: 1;
+	max-width: 260px;
+	padding: 12px 18px;
+	border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+	color: #8d99a4;
+	font-family: var(--ui-display);
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.4px;
+	text-align: center;
+	text-decoration: none;
+	transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+
+.setup-nav-link:hover,
+.setup-mode-comp .setup-nav-link:first-child,
+.setup-mode-skirmish .setup-nav-link:last-child {
+	border-bottom-color: #51dfbb;
+	background: rgba(81, 223, 187, 0.08);
+	color: #f4f5f7;
+}
+
 .setup-section {
 	padding: 0 24px 26px;
 	border: 1px solid rgba(255, 255, 255, 0.1);
@@ -50,6 +90,10 @@ body {
 	gap: 12px;
 	min-height: 40px;
 	color: #c8cdd2;
+}
+
+.skirmish-hidden {
+	display: none !important;
 }
 
 .field-row > label {
@@ -126,6 +170,7 @@ label {
 @media (max-width: 760px) {
 	header { padding-inline: 68px; }
 	.setup-content { padding-inline: 12px; }
+	.setup-nav { padding-inline: 12px; }
 	.team-grid { grid-template-columns: 1fr; }
 	.field-row { grid-template-columns: 100px minmax(0, 1fr); }
 }
